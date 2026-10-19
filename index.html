@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PyBot — A Python Learning Assistant that answers every question independently with no conversation history. Built for beginners." />
+  <meta name="keywords" content="Python, learning, chatbot, beginner, programming, tutorial" />
+  <title>PyBot — Python Learning Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>" />
+</head>
+<body class="light-theme">
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION BAR
+  ═══════════════════════════════════════════ -->
+  <header class="navbar" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#home" class="nav-logo" aria-label="PyBot Home">
+        <span class="logo-icon" aria-hidden="true">🐍</span>
+        <span class="logo-text">PyBot</span>
+        <span class="logo-tagline">Python Assistant</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#chat" class="nav-link">Chat</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <!-- Right Controls -->
+      <div class="nav-controls">
+        <!-- Theme Toggle -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Switch to dark mode"
+          title="Toggle light/dark theme"
+        >
+          <span class="theme-icon-light" aria-hidden="true">☀️</span>
+          <span class="theme-icon-dark" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          class="mobile-menu-btn"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="mobile-menu" role="menu" hidden>
+      <a href="#home"     class="mobile-nav-link" role="menuitem">Home</a>
+      <a href="#chat"     class="mobile-nav-link" role="menuitem">Chat</a>
+      <a href="#features" class="mobile-nav-link" role="menuitem">Features</a>
+      <a href="#about"    class="mobile-nav-link" role="menuitem">About</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="home" class="hero-section" aria-labelledby="hero-heading">
+
+      <!-- Floating badge -->
+      <div class="hero-badge" aria-label="Product highlight">
+        <span class="badge-dot" aria-hidden="true"></span>
+        No History &nbsp;·&nbsp; No Context &nbsp;·&nbsp; Just Answers
+      </div>
+
+      <h1 id="hero-heading" class="hero-heading">
+        Learn Python,<br />
+        <span class="hero-heading-accent">One Question at a Time</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Ask any Python question and get a clear, beginner-friendly answer.
+        Every question is processed <strong>independently</strong> — no previous
+        conversation is ever used as context. Fresh answers, every time.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#chat" class="btn btn-primary" aria-label="Go to the chat workspace">
+          🚀 Start Learning
+        </a>
+        <a href="#features" class="btn btn-secondary" aria-label="See all features">
+          Explore Features
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats" aria-label="Product highlights">
+        <div class="hero-stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Python Topics</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="stat-number">0</span>
+          <span class="stat-label">History Stored</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Independent Answers</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CHAT WORKSPACE
+    ═══════════════════════════════════════════ -->
+    <section id="chat" class="chat-section" aria-labelledby="chat-heading">
+      <div class="section-label" aria-hidden="true">Chat Workspace</div>
+      <h2 id="chat-heading" class="section-heading">Ask a Python Question</h2>
+      <p class="section-subheading">
+        Type any Python question below. Each question is answered on its own —
+        no previous questions or answers are used.
+      </p>
+
+      <div class="chat-card" role="region" aria-label="Python learning chatbot">
+
+        <!-- Demo Mode Banner -->
+        <div id="demoBanner" class="demo-banner" role="status" aria-live="polite">
+          <span class="demo-banner-icon" aria-hidden="true">⚡</span>
+          <span class="demo-banner-text">
+            <strong>Demo Mode</strong> — Built-in Python knowledge base. Answers any Python question instantly.
+            <a href="#about" class="demo-banner-link">Learn more</a>
+          </span>
+        </div>
+
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div class="chat-header-info">
+            <div class="chat-avatar" aria-hidden="true">🐍</div>
+            <div class="chat-header-text">
+              <span class="chat-name">PyBot</span>
+              <span class="chat-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                Ready to help
+              </span>
+            </div>
+          </div>
+          <button
+            id="clearChatBtn"
+            class="btn btn-ghost btn-sm"
+            aria-label="Clear all chat messages"
+            title="Clear chat"
+          >
+            🗑️ Clear Chat
+          </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div
+          id="chatMessages"
+          class="chat-messages"
+          role="log"
+          aria-live="polite"
+          aria-label="Chat messages"
+          aria-atomic="false"
+        >
+          <!-- Welcome message injected by JS -->
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="suggestions-area" aria-label="Suggested questions">
+          <p class="suggestions-label">Try asking:</p>
+          <div class="suggestions-grid" role="list">
+            <button class="suggestion-chip" role="listitem" data-question="What is Python?">
+              What is Python?
+            </button>
+            <button class="suggestion-chip" role="listitem" data-question="Explain variables in Python">
+              Explain variables
+            </button>
+            <button class="suggestion-chip" role="listitem" data-question="What is the difference between a list and a tuple in Python?">
+              List vs Tuple?
+            </button>
+            <button class="suggestion-chip" role="listitem" data-question="Explain for loops and while loops in Python">
+              For &amp; While loops
+            </button>
+            <button class="suggestion-chip" role="listitem" data-question="What is a function in Python?">
+              What is a function?
+            </button>
+            <button class="suggestion-chip" role="listitem" data-question="Explain mutable and immutable objects in Python">
+              Mutable vs Immutable
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+          <div id="inputError" class="input-error" role="alert" aria-live="assertive" hidden></div>
+          <form id="chatForm" class="chat-form" novalidate aria-label="Send a question">
+            <label for="questionInput" class="sr-only">Type your Python question</label>
+            <input
+              type="text"
+              id="questionInput"
+              class="chat-input"
+              placeholder="Ask any Python question…"
+              maxlength="500"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="true"
+              aria-describedby="inputError"
+              aria-required="true"
+            />
+            <button
+              type="submit"
+              id="sendBtn"
+              class="btn btn-send"
+              aria-label="Send question"
+            >
+              <span class="send-icon" aria-hidden="true">➤</span>
+              <span class="send-text">Send</span>
+            </button>
+          </form>
+          <p class="input-hint">Press <kbd>Enter</kbd> to send · Max 500 characters</p>
+        </div>
+
+      </div><!-- /chat-card -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FEATURES SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="features" class="features-section" aria-labelledby="features-heading">
+      <div class="section-label" aria-hidden="true">What Makes PyBot Different</div>
+      <h2 id="features-heading" class="section-heading">Features</h2>
+      <p class="section-subheading">
+        Built specifically for Python beginners, with a clear architectural commitment
+        to independent question processing.
+      </p>
+
+      <div class="features-grid">
+
+        <article class="feature-card" aria-labelledby="feat1">
+          <div class="feature-icon" aria-hidden="true">🚫</div>
+          <h3 id="feat1" class="feature-title">No Conversation Memory</h3>
+          <p class="feature-desc">
+            Previous questions and answers are never stored, never retrieved, and never
+            sent with a new request. Every conversation turn is self-contained.
+          </p>
+        </article>
+
+        <article class="feature-card" aria-labelledby="feat2">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3 id="feat2" class="feature-title">Independent Processing</h3>
+          <p class="feature-desc">
+            Each question is sent to the AI with only a fixed system prompt and your
+            current question — nothing from prior turns is included.
+          </p>
+        </article>
+
+        <article class="feature-card" aria-labelledby="feat3">
+          <div class="feature-icon" aria-hidden="true">🐍</div>
+          <h3 id="feat3" class="feature-title">Python-Focused Answers</h3>
+          <p class="feature-desc">
+            Covers Python basics, variables, loops, functions, OOP, exception handling,
+            data structures, and common interview topics.
+          </p>
+        </article>
+
+        <article class="feature-card" aria-labelledby="feat4">
+          <div class="feature-icon" aria-hidden="true">📱</div>
+          <h3 id="feat4" class="feature-title">Fully Responsive</h3>
+          <p class="feature-desc">
+            Works on phones, tablets, and desktops. The chat interface adapts to any
+            screen size without breaking the layout.
+          </p>
+        </article>
+
+        <article class="feature-card" aria-labelledby="feat5">
+          <div class="feature-icon" aria-hidden="true">🔒</div>
+          <h3 id="feat5" class="feature-title">Secure Architecture</h3>
+          <p class="feature-desc">
+            API keys stay on the backend server — never in frontend code. User input
+            is sanitized and never rendered as HTML.
+          </p>
+        </article>
+
+        <article class="feature-card" aria-labelledby="feat6">
+          <div class="feature-icon" aria-hidden="true">🎮</div>
+          <h3 id="feat6" class="feature-title">Demo Mode Included</h3>
+          <p class="feature-desc">
+            Works out of the box with pre-written Python answers — no API key required.
+            Clearly labelled so it's never misleading.
+          </p>
+        </article>
+
+      </div><!-- /features-grid -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+      <div class="section-label" aria-hidden="true">About This Project</div>
+      <h2 id="about-heading" class="section-heading">What Is PyBot?</h2>
+
+      <div class="about-grid">
+
+        <!-- Left: text -->
+        <div class="about-text">
+          <p>
+            PyBot is a SaaS-style Python learning chatbot built as a
+            <strong>GenAI assignment</strong> for the SureTrust program. It demonstrates
+            a specific AI architecture concept: a <em>chatbot without history</em>.
+          </p>
+          <p>
+            Most AI chatbots work by accumulating a conversation — every message you
+            send includes all previous messages as context for the next response.
+            PyBot deliberately removes this: each question is answered completely fresh,
+            with no knowledge of what was asked or answered before.
+          </p>
+          <p>
+            This is not a missing feature — it is the <strong>core design</strong>.
+            For learning individual Python concepts, independent answers are often
+            clearer and less prone to context drift than multi-turn conversations.
+          </p>
+
+          <!-- How it works steps -->
+          <div class="how-it-works" aria-labelledby="hiw-heading">
+            <h3 id="hiw-heading" class="hiw-heading">How It Works</h3>
+            <ol class="hiw-steps">
+              <li class="hiw-step">
+                <span class="step-num" aria-hidden="true">1</span>
+                <span>You type a Python question into the chat input.</span>
+              </li>
+              <li class="hiw-step">
+                <span class="step-num" aria-hidden="true">2</span>
+                <span>PyBot sends <em>only that question</em> plus a fixed system prompt to the AI.</span>
+              </li>
+              <li class="hiw-step">
+                <span class="step-num" aria-hidden="true">3</span>
+                <span>The AI answers your question without any knowledge of previous questions.</span>
+              </li>
+              <li class="hiw-step">
+                <span class="step-num" aria-hidden="true">4</span>
+                <span>The answer appears in the chat area for your reference.</span>
+              </li>
+              <li class="hiw-step">
+                <span class="step-num" aria-hidden="true">5</span>
+                <span>Your next question starts the same process from scratch.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right: info card -->
+        <aside class="about-card" aria-label="Technical details">
+          <h3 class="about-card-title">🔍 No-History Guarantee</h3>
+          <ul class="about-card-list">
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              Each request contains only the current question
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              No previous messages ever included in AI requests
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              No localStorage or sessionStorage conversation data
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              No database or server-side chat storage
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              Clear Chat removes all visible messages
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✅</span>
+              Refreshing the page clears all messages permanently
+            </li>
+          </ul>
+
+          <div class="about-card-divider" aria-hidden="true"></div>
+
+          <h3 class="about-card-title">📚 Topics Covered</h3>
+          <ul class="topic-tags" aria-label="Python topics covered">
+            <li class="topic-tag">Python Basics</li>
+            <li class="topic-tag">Variables &amp; Types</li>
+            <li class="topic-tag">Strings &amp; Operators</li>
+            <li class="topic-tag">Conditions &amp; Loops</li>
+            <li class="topic-tag">Functions</li>
+            <li class="topic-tag">Lists &amp; Tuples</li>
+            <li class="topic-tag">Sets &amp; Dicts</li>
+            <li class="topic-tag">OOP</li>
+            <li class="topic-tag">Exceptions</li>
+            <li class="topic-tag">Interview Prep</li>
+          </ul>
+
+          <div class="about-card-divider" aria-hidden="true"></div>
+
+          <h3 class="about-card-title">🛠️ Built With</h3>
+          <ul class="tech-list" aria-label="Technologies used">
+            <li>HTML5 &amp; CSS3</li>
+            <li>Vanilla JavaScript (ES6+)</li>
+            <li>Python + Flask (backend)</li>
+            <li>GitHub Pages (hosting)</li>
+          </ul>
+        </aside>
+
+      </div><!-- /about-grid -->
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <span class="footer-logo" aria-hidden="true">🐍</span>
+        <span class="footer-name">PyBot</span>
+        <p class="footer-desc">
+          A Python Learning Assistant that answers every question independently,
+          with no conversation history.
+        </p>
+      </div>
+
+      <div class="footer-links" aria-label="Footer navigation">
+        <h4 class="footer-col-title">Navigate</h4>
+        <ul role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#chat">Chat</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-tech" aria-label="Technology stack">
+        <h4 class="footer-col-title">Built With</h4>
+        <ul role="list">
+          <li>HTML5 &amp; CSS3</li>
+          <li>Vanilla JavaScript</li>
+          <li>Python + Flask</li>
+          <li>GitHub Pages</li>
+        </ul>
+      </div>
+
+      <div class="footer-repo" aria-label="Repository information">
+        <h4 class="footer-col-title">Repository</h4>
+        <a
+          id="githubLink"
+          href="https://github.com/hariganeshlanganuru-svg/octocat.github.io"
+          class="footer-github-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View source code on GitHub"
+        >
+          ⭐ View on GitHub
+        </a>
+        <a
+          href="https://octocat-github-io.vercel.app"
+          class="footer-github-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View live site on Vercel"
+          style="margin-top:6px;"
+        >
+          🚀 Live on Vercel
+        </a>
+        <p class="footer-assignment">
+          GenAI Assignment &nbsp;·&nbsp; SureTrust &nbsp;·&nbsp; 2026
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 PyBot — Python Learning Assistant. Built for the SureTrust GenAI Assignment.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
